@@ -1,0 +1,24 @@
+{
+  "name": "manager",
+  "version": "1.0.0",
+  "description": "manager server",
+  "main": "manager.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "fabric-ca-client": "^2.2.11",
+    "fabric-network": "^2.2.11",
+    "forever": "^4.0.3",
+    "fs": "^0.0.1-security",
+    "helmet": "^5.0.2",
+    "https": "^1.0.0",
+    "log4js": "^6.4.2",
+    "path": "^0.12.7"
+  }
+}

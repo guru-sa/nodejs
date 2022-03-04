@@ -1,0 +1,71 @@
+{
+    "name": "first-network-org1",
+    "version": "1.0.0",
+    "client": {
+        "organization": "Org1",
+        "connection": {
+            "timeout": {
+                "peer": {
+                    "endorser": "300"
+                }
+            }
+        }
+    },
+    "organizations": {
+        "Org${ORG}": {
+            "mspid": "Org1MSP",
+            "peers": [
+                "peer0.leader.markany.com",
+                "peer1.leader.markany.com",
+                "peer2.leader.markany.com"
+            ],
+            "certificateAuthorities": [
+                "ca.leader.markany.com"
+            ]
+        }
+    },
+    "peers": {
+        "peer0.leader.markany.com": {
+            "url": "grpcs://peer0.leader.markany.com:7051",
+            "tlsCACerts": {
+                "path": "./cert/peer/peer.crt"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "peer0.leader.markany.com",
+                "hostnameOverride": "peer0.leader.markany.com"
+            }
+        },
+        "peer1.leader.markany.com": {
+            "url": "grpcs://peer1.leader.markany.com:8051",
+            "tlsCACerts": {
+                "path": "./cert/peer/peer.crt"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "peer1.leader.markany.com",
+                "hostnameOverride": "peer1.leader.markany.com"
+            }
+        },
+        "peer2.leader.markany.com": {
+            "url": "grpcs://peer2.leader.markany.com:9051",
+            "tlsCACerts": {
+                "path": "./cert/peer/peer.crt"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "peer2.leader.markany.com",
+                "hostnameOverride": "peer2.leader.markany.com"
+            }
+        }
+    },
+    "certificateAuthorities": {
+        "ca.leader.markany.com": {
+            "url": "https://ca.leader.markany.com:8054",
+            "caName": "ca.leader.markany.com",
+            "tlsCACerts": {
+                "path": "./cert/peer/ca.crt"
+            },
+            "httpOptions": {
+                "verify": false
+            }
+        }
+    }
+}
