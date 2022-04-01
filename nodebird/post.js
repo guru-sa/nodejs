@@ -1,7 +1,6 @@
 const express = require('express');
 const multer = require('multer');
 const fs = require('fs');
-const path = require('path');
 const multerGoogleStorage = require('multer-google-storage');
 
 const { Post, Hashtag } = require('../models');
@@ -21,19 +20,13 @@ const upload = multer({
     bucket: 'nodebird',
     projectId: 'node-deploy-270114',
     keyFilename: 'node-deploy-270114-b024dbed754a.json',
-    filename(req, file, cb) {
-      cb(null, `original/${Date.now()}${path.basename(file.originalname)}`);
-    },
   }),
   limits: { fileSize: 5 * 1024 * 1024 },
 });
 
 router.post('/img', isLoggedIn, upload.single('img'), (req, res) => {
   console.log(req.file);
-  const filePath = req.file.path.split('/').splice(0, 3).join('/');
-  const originalUrl = `${filePath}/${req.file.filename}`;
-  const url = originalUrl.replace(/\/original\//, '/thumb/');
-  res.json({ url, originalUrl });
+  res.json({ url: req.file.path });
 });
 
 const upload2 = multer();
